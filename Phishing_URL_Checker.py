@@ -5,7 +5,7 @@
 import re
 from urllib.parse import urlparse
 
-SUSPICIOUS_KEYWORDS = [
+Suspicious_Keywords = [
     "login", "verify", "secure", "account", "update",
     "bank", "password", "confirm"
 ]
@@ -21,4 +21,14 @@ def analyze_url(url):
 
     domain = parsed.netloc.lower()
     path = parsed.path.lower()
+
+# _________________________________________________________________________________________________
+
+    if is_ip(domain) :
+        print("[!] Uses IP adress instead of domain")
+        score += 2
+        
+# _________________________________________________________________________________________________
+
+
 
