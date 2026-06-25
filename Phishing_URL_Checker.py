@@ -6,9 +6,17 @@ import re
 from urllib.parse import urlparse
 
 Suspicious_Keywords = [
-    "login", "verify", "secure", "account", "update",
-    "bank", "password", "confirm"
-]
+                    "login", 
+                    "verify",
+                    "secure", 
+                    "account", 
+                    "update",
+                    "bank", 
+                    "password", 
+                    "confirm"
+                    ]
+
+# _________________________________________________________________________________________________
 
 def is_ip(address):
     return re.match(r"^\d{1,3}(\.\d{1,3}){3}$", address) is not None
@@ -55,4 +63,24 @@ def analyze_url(url):
         
 # _________________________________________________________________________________________________
 
+    print("\nRisk Score : ", score)
 
+    if score >= 4 :
+        print("!!! HIGH RISK : Possible Phishing URL")
+        
+    elif score >= 2 :
+        print("!! MEDIUM RISK : Proceed this URL with caution")
+        
+    else:
+        print("! LOW RISK : No threats within the URL detected")
+        
+# _________________________________________________________________________________________________
+
+if __name__ == "__main__":
+    while True:
+        url = input("\nEnter URL or exit :")
+        if url.lower() == "exit":
+            break
+        analyze_url(url)
+        
+# _________________________________________________________________________________________________
