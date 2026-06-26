@@ -1,7 +1,6 @@
 Example URL's that are safe to use for testing
 
 
-
 Low Risk - https://www.google.com
 
 IP Address Detection - http://192.168.1.1
